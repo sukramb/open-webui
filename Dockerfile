@@ -133,6 +133,7 @@ RUN pip3 install uv && \
     python -c "import os; from sentence_transformers import SentenceTransformer; SentenceTransformer(os.environ['RAG_EMBEDDING_MODEL'], device='cpu')" && \
     python -c "import os; from faster_whisper import WhisperModel; WhisperModel(os.environ['WHISPER_MODEL'], device='cpu', compute_type='int8', download_root=os.environ['WHISPER_MODEL_DIR'])"; \
     fi; \
+    pip3 install PyPDF2 pdfplumber pdfminer.six &&\
     chown -R $UID:$GID /app/backend/data/
 
 
